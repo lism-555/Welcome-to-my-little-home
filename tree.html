@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Christmas Tree &middot; My Little Home</title>
+<meta name="description" content="The Christmas tree in a retro Christmas house: the sixth picture of the house, under a translucent evergreen, with a Christmas album of six photographs.">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232e0d14'/%3E%3Cpath d='M16 5l2.9 6.1 6.6.8-4.9 4.5 1.3 6.5L16 19.8 10.1 22.9l1.3-6.5L6.5 11.9l6.6-.8z' fill='%23d9b45f'/%3E%3C/svg%3E">
+</head>
+<body class="page page--tree" data-parent="room.html">
+  <main id="main">
+    <h1 class="sr-only">The Christmas Tree</h1>
+
+    <p class="album__label">Christmas Album</p>
+
+    <div class="stage" style="background-image:url('assets/img/living-room-tree.jpg')">
+      <div class="stage__tint" id="tint" data-rgb="47,70,51" style="background:rgba(47,70,51,0.7)"></div>
+      <div class="stage__vig"></div>
+
+      <div class="album__tree" id="album-tree">
+        <img src="assets/img/christmas-tree.png" alt="A decorated Christmas tree hung with red bows and gold baubles">
+
+        <button class="album__ball" type="button" data-photo="assets/img/album-01.jpg"
+                data-alt="Choosing a mug in a Christmas shop"
+                aria-label="The first photograph of the album"
+                style="--x:51.01%; --y:37.31%; --s:10%"><span class="sr-only">The first photograph</span></button>
+
+        <button class="album__ball" type="button" data-photo="assets/img/album-02.jpg"
+                data-alt="Under the lights at the castle"
+                aria-label="The second photograph of the album"
+                style="--x:24.94%; --y:51.32%; --s:9%"><span class="sr-only">The second photograph</span></button>
+
+        <button class="album__ball" type="button" data-photo="assets/img/album-03.jpg"
+                data-alt="A Winnie the Pooh mug from the shelf"
+                aria-label="The third photograph of the album"
+                style="--x:64.86%; --y:51.17%; --s:9.5%"><span class="sr-only">The third photograph</span></button>
+
+        <button class="album__ball" type="button" data-photo="assets/img/album-04.jpg"
+                data-alt="In front of the Christmas shop window"
+                aria-label="The fourth photograph of the album"
+                style="--x:53.27%; --y:60.98%; --s:15%"><span class="sr-only">The fourth photograph</span></button>
+
+        <button class="album__ball" type="button" data-photo="assets/img/album-05.jpg"
+                data-alt="The princesses on the parade"
+                aria-label="The fifth photograph of the album"
+                style="--x:23.68%; --y:77.34%; --s:12%"><span class="sr-only">The fifth photograph</span></button>
+
+        <button class="album__ball" type="button" data-photo="assets/img/album-06.jpg"
+                data-alt="The Cinderella carousel at night"
+                aria-label="The sixth photograph of the album"
+                style="--x:70.91%; --y:78.58%; --s:13%"><span class="sr-only">The sixth photograph</span></button>
+      </div>
+
+      <figure class="album__shot" id="album-shot" hidden>
+        <img class="album__photo" id="album-photo" src="" alt="">
+      </figure>
+    </div>
+  </main>
+
+<script src="assets/js/site.js"></script>
+<script src="assets/js/album.js"></script>
+</body>
+</html>

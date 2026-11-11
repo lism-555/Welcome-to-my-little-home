@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Gramophone &middot; My Little Home</title>
+<meta name="description" content="The gramophone in a retro Christmas house: three Christmas records to choose from under a translucent evergreen, and the music follows you through the house.">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232e0d14'/%3E%3Cpath d='M16 5l2.9 6.1 6.6.8-4.9 4.5 1.3 6.5L16 19.8 10.1 22.9l1.3-6.5L6.5 11.9l6.6-.8z' fill='%23d9b45f'/%3E%3C/svg%3E">
+</head>
+<body class="page page--gramophone" data-parent="room.html">
+  <main id="main">
+    <h1 class="sr-only">The Gramophone</h1>
+
+    <div class="stage" style="background-image:url('assets/img/gramophone-player.jpg')">
+      <div class="stage__tint" id="tint" data-rgb="47,70,51" style="background:rgba(47,70,51,0.7)"></div>
+      <div class="stage__vig"></div>
+
+      <p class="record__title">Choose a Record</p>
+
+      <div class="record__row" id="record-row">
+        <button class="record" type="button" data-index="0" style="--d:.42s">
+          <img src="assets/img/cover-1.jpg" alt="A little girl in a pink dress dancing beside a Christmas tree">
+        </button>
+        <button class="record" type="button" data-index="1" style="--d:.26s">
+          <img src="assets/img/cover-2.jpg" alt="Five young men sitting together in a Christmas living room">
+        </button>
+        <button class="record" type="button" data-index="2" style="--d:.10s">
+          <img src="assets/img/cover-3.jpg" alt="A snowy window with a little Christmas tree and red gifts behind it">
+        </button>
+      </div>
+
+      <div class="record__deck" id="record-deck">
+        <div class="record__disc" id="record-disc">
+          <div class="record__disc-face" id="record-disc-face"></div>
+        </div>
+        <img class="record__cover" id="record-cover" src="assets/img/cover-1.jpg" alt="">
+        <button class="record__play" id="record-play" type="button" aria-label="Pause the record">
+          <span class="record__glyph"></span>
+        </button>
+        <div class="record__progress" id="record-progress" role="progressbar"
+             aria-label="How far the record has come" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div class="record__progress-fill" id="record-progress-fill"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <audio id="record-audio" loop preload="none"></audio>
+
+<script src="assets/js/site.js"></script>
+<script src="assets/js/records.js"></script>
+<script src="assets/js/gramophone.js"></script>
+</body>
+</html>
