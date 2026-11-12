@@ -186,9 +186,9 @@ body::after {
   border-radius: 4px;
 }
 
-/* the picture is the whole screen: no bars above, below or beside it.
-   the stage keeps its 4:3 and hangs from the top, so the gramophone in the
-   top left corner never falls out of the picture */
+/* the picture keeps its 4:3 and always fits the window. when the window is
+   wider than 4:3 the picture is centred and deep brown margins show at the
+   sides, so the desk at the bottom of the scene never falls off the screen */
 main {
   position: fixed;
   inset: 0;
@@ -196,12 +196,12 @@ main {
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: 100%;
-  place-items: start center;
+  place-items: center;
 }
 
 .stage {
   position: relative;
-  width: max(100vw, 133.3333vh);
+  width: min(100vw, 133.3333vh);
   aspect-ratio: 4 / 3;
   overflow: hidden;
   background-color: var(--brown-700);
@@ -209,6 +209,7 @@ main {
   background-repeat: no-repeat;
   background-size: cover;
   container-type: inline-size;
+  box-shadow: 0 0 0 1px rgba(217, 180, 95, 0.16), 0 26px 80px rgba(0, 0, 0, 0.6);
   transition: transform 0.45s ease, opacity 0.45s ease;
 }
 
@@ -344,7 +345,7 @@ main {
   pointer-events: none;
 }
 .zoom-veil__frame {
-  width: max(100vw, 133.3333vh);
+  width: min(100vw, 133.3333vh);
   aspect-ratio: 4 / 3;
   background-image: url("../img/living-room.jpg");
   background-position: center;
@@ -650,9 +651,9 @@ body.page--gramophone #record-audio { display: none; }
 
 .record {
   position: absolute;
-  top: calc(37.5cqw - 10.5vw);
-  width: 21vw;
-  height: 21vw;
+  top: calc(37.5cqw - 10.5cqw);
+  width: 21cqw;
+  height: 21cqw;
   padding: 0;
   border: 0;
   background: none;
@@ -660,13 +661,13 @@ body.page--gramophone #record-audio { display: none; }
   pointer-events: auto;
   opacity: 0;
   transform-origin: left center;
-  transform: translateX(30vw) scale(0.86) rotateY(-26deg);
+  transform: translateX(30cqw) scale(0.86) rotateY(-26deg);
   filter: blur(7px);
   transition: opacity 0.55s ease, transform 1s cubic-bezier(0.16, 0.84, 0.22, 1), filter 0.85s ease;
 }
-.record:nth-child(1) { left: calc(50% - 36.5vw); }
-.record:nth-child(2) { left: calc(50% - 10.5vw); }
-.record:nth-child(3) { left: calc(50% + 15.5vw); }
+.record:nth-child(1) { left: calc(50% - 36.5cqw); }
+.record:nth-child(2) { left: calc(50% - 10.5cqw); }
+.record:nth-child(3) { left: calc(50% + 15.5cqw); }
 .record img {
   display: block;
   width: 100%;
@@ -697,10 +698,10 @@ body.is-records-in .record {
 /* the sleeve, grown into the middle of the picture */
 .record__cover {
   position: absolute;
-  left: calc(50% - 27vw);
-  top: calc(37.5cqw - 17vw);
-  width: 34vw;
-  height: 34vw;
+  left: calc(50% - 27cqw);
+  top: calc(37.5cqw - 17cqw);
+  width: 34cqw;
+  height: 34cqw;
   object-fit: cover;
   opacity: 0;
   transform: scale(0.82);
@@ -714,10 +715,10 @@ body.is-records-in .record {
 /* the disc, waiting behind the sleeve */
 .record__disc {
   position: absolute;
-  left: calc(50% - 27vw);
-  top: calc(37.5cqw - 17vw);
-  width: 34vw;
-  height: 34vw;
+  left: calc(50% - 27cqw);
+  top: calc(37.5cqw - 17cqw);
+  width: 34cqw;
+  height: 34cqw;
   border-radius: 50%;
   overflow: hidden;
   background-color: #0b0907;
@@ -747,10 +748,10 @@ body.is-records-in .record {
 /* the eye of the disc: the key that starts and stops the music */
 .record__play {
   position: absolute;
-  left: calc(50% + 5.5vw);
-  top: calc(37.5cqw - 4.5vw);
-  width: 9vw;
-  height: 9vw;
+  left: calc(50% + 5.5cqw);
+  top: calc(37.5cqw - 4.5cqw);
+  width: 9cqw;
+  height: 9cqw;
   margin: 0;
   padding: 0;
   border: 0;
@@ -775,27 +776,27 @@ body.is-records-in .record {
   width: 0;
   height: 0;
   transform: translate(-40%, -50%);
-  border-left: 3.1vw solid var(--gold);
-  border-top: 2vw solid transparent;
-  border-bottom: 2vw solid transparent;
+  border-left: 3.1cqw solid var(--gold);
+  border-top: 2cqw solid transparent;
+  border-bottom: 2cqw solid transparent;
 }
 body.is-record-playing .record__glyph::before {
-  width: 3.1vw;
-  height: 4vw;
+  width: 3.1cqw;
+  height: 4cqw;
   transform: translate(-50%, -50%);
   border: 0;
   background-image: linear-gradient(90deg,
-    var(--gold) 0 1.05vw, transparent 1.05vw 2.05vw, var(--gold) 2.05vw 3.1vw);
+    var(--gold) 0 1.05cqw, transparent 1.05cqw 2.05cqw, var(--gold) 2.05cqw 3.1cqw);
 }
 
 /* the little bar under the disc: how far the record has come */
 .record__progress {
   position: absolute;
-  left: calc(50% - 1vw);
-  /* it hangs just under the disc, and never falls off the screen */
-  top: min(calc(37.5cqw + 17vw + 1.1vw), calc(100vh - 1.6vw));
-  width: 22vw;
-  height: 0.75vw;
+  left: calc(50% - 1cqw);
+  /* it hangs just under the disc, and never falls off the picture */
+  top: min(calc(37.5cqw + 17cqw + 1.1cqw), calc(75cqw - 1.6cqw));
+  width: 22cqw;
+  height: 0.75cqw;
   border-radius: 999px;
   background: rgba(22, 14, 9, 0.55);
   box-shadow: inset 0 0 0 1px rgba(242, 227, 188, 0.22), 0 6px 18px rgba(0, 0, 0, 0.45);
@@ -815,11 +816,11 @@ body.is-record-playing .record__glyph::before {
 .record__progress-fill::after {
   content: "";
   position: absolute;
-  right: -0.65vw;
+  right: -0.65cqw;
   top: 50%;
-  width: 1.3vw;
-  height: 1.3vw;
-  margin-top: -0.65vw;
+  width: 1.3cqw;
+  height: 1.3cqw;
+  margin-top: -0.65cqw;
   border-radius: 50%;
   background: var(--cream);
   box-shadow: 0 0 10px rgba(217, 180, 95, 0.9);
@@ -838,7 +839,7 @@ body.is-record-open .record__cover {
 }
 body.is-record-open .record__disc {
   opacity: 1;
-  transform: translateX(20vw);
+  transform: translateX(20cqw);
 }
 body.is-record-open .record__play {
   opacity: 1;

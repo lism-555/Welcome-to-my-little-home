@@ -10,9 +10,10 @@ No frameworks, no build step, nothing to install.
 ## The five screens
 
 Every screen is **one picture and nothing else**: no header, no navigation bar, no
-footer, no captions, no bars above or below. The picture runs edge to edge across
-the whole window, always in its original 4:3 proportion — the window simply crops
-the edges of the photograph rather than stretching it.
+footer, no captions, no bars above or below. The picture keeps its original 4:3
+proportion and is always shown whole — it fills the window in one direction and leaves
+the deep brown wall showing in the other, so nothing in the picture, not even the
+writing desk at the bottom of the fireside, can fall out of reach.
 
 | Screen | File | What it is |
 | --- | --- | --- |
@@ -59,9 +60,10 @@ cream    #f2e3bc / #e2ce9e / #c4ac7c   + gold #d9b45f
 
 **Every picture is exactly 4:3.** The source photographs were cropped — never
 scaled — until each one measured precisely 4:3. The stage on every screen keeps that
-ratio and covers the window (`width: max(100vw, 133.33vh)` with `aspect-ratio: 4 / 3`),
-so the picture is shown whole and undistorted; the window crops what it cannot fit.
-Nothing is stretched or blown out of shape.
+ratio and fits the window (`width: min(100vw, 133.33vh)` with `aspect-ratio: 4 / 3`),
+so the picture is shown whole and undistorted; the window never crops it. Everything
+inside a picture is measured in `cqw`, the width of the stage, so the furniture keeps
+its proportions whatever shape the window is. Nothing is stretched or blown out of shape.
 
 **Nothing is written over the picture.** The only text on the site is the script title
 on the doorstep, which belongs to the photograph itself, and the script title of the
@@ -150,7 +152,20 @@ christmas-home/
 | At least four pages with working navigation | Five screens; the marks and the middle zoom lead forwards, the backspace key leads back |
 | Their own content | Each scene has its own picture and its own screen |
 | Semantic, accessible markup | `main`, one `h1` per page, descriptive names on every mark, visible focus ring |
-| Responsive layout | One fluid 4:3 stage that covers the window |
+| Responsive layout | One fluid 4:3 stage that fits the window whole |
 | At least one interactive element | The middle zoom, the three marks, the cup of coffee, the album and the records |
 | Live at a real address | Published as a static site — see the deployment note below |
 | A Git history showing the work develop over the semester | Staged commits across the semester — see `git log` |
+
+---
+
+## Deployment
+
+The house is published as a static site on GitHub Pages, straight from the root of
+the `main` branch — the files in this repository are the files that are served.
+
+**Live address:** <https://lism-555.github.io/Welcome-to-my-little-home/>
+
+Every path inside the site is relative, so the repository can be served from a
+sub-path (as it is here) or from a domain of its own without a single change.
+There is no build step: pushing to `main` is the deployment.
